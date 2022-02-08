@@ -6,14 +6,17 @@ import imutils
 import cv2
 
 
-print("How many questions are there? ")
 ANSWER_KEY = {}
-count = int(input())
-for i in range(count):
+i=0
+print("Would you like to enter an answer for a question?(y/n) ")
+ANSWER = True
+while ANSWER in 'abcde':
     print(f"Please enter the correct answer for question {i+1}")
     ANSWER = input().lower();
     if ANSWER in "abcde":
         ANSWER_KEY[i] = "abcde".index(ANSWER)
+    i+=1
+
 
 image = cv2.imread("testimage.png")
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
